@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js" type="text/javascript"></script>
+  <script src="progress.js" type="text/javascript"></script>
+  <link rel="stylesheet" type="text/css" href="progress_style.css">
+    <title>React Sample App for Demoing Structure, Build, Hot loading</title>
+</head>
+
+<body >
+  <div class='progress' id="progress_div">
+    <div class='bar' id='bar1'></div>
+    <div class='percent' id='percent1'></div>
+  </div>
+  <div style = "display : none;" id="wrapper">
+    <div id="content">
+      <h1>Display Progress Bar While Page Loads Using jQuery<p>TalkersCode.com</p></h1>
+    </div>
+  </div>
+
+  <input type="hidden"style = "display : none;" id="progress_width" value="0">
+    <div id="mountapp"></div>
+</body>
+<script src="./dist/bundle.js" charset="utf-8"></script>
+
+</html>
