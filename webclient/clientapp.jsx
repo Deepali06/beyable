@@ -7,6 +7,9 @@ import Sample from './components/sample/sample.jsx';
 import LoginForm from './components/sample/loginform.jsx';
 import ForgotPassword from './components/sample/forgotpassword.jsx';
 import SignupForm from './components/sample/signupform.jsx';
+import Navbar from './components/sample/navbar.jsx';
+import Home from './components/sample/home.jsx';
+
 import injectTapEventPlugin from 'react-tap-event-plugin';
 injectTapEventPlugin();
 
@@ -17,6 +20,10 @@ ReactDOM.render(
 				<IndexRoute component = {LoginForm}/>
 				<Route path = '/forgotPassword' component = {ForgotPassword}/>
 				<Route path = '/signupForm' component = {SignupForm}/>
+			</Route>
+
+			<Route path="/home" component = {Navbar} >
+				<IndexRoute component = {Home}/>
 			</Route>
 		</Router>
 	</MuiThemeProvider>,

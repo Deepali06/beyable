@@ -18,24 +18,28 @@ export default class Sample extends React.Component {
 		this.state = {
 
 		}
+		this.alertOptions = {
+						offset: 14,
+						position: 'top left',
+						theme: 'dark',
+						time: 5000,
+						transition: 'scale'
+					};
 	}
 
 
 	render () {
 	const	{ display } = this.state;
 console.log(this.props)
+
+
 		return (
 			<div id = 'loginwrapper' style = {(this.props.location.pathname == "/signupForm")?{"left" : "calc(50% - 350px)" , 'width' : '700px' }:{}}>
 				<div id = 'logo'>
 					<img src = "http://demo.beyable.com/themes/ap_decorative_store/logo_beyable.png" />
 					</div>
 					  {this.props.children}
-						<Snackbar
-				 open={this.props.location.search}
-				 message="Password change link has been mailed to you"
-				 autoHideDuration={4000}
-				 onRequestClose={this.handleRequestClose}
-			 />
+
 			</div>
 		);
 	}

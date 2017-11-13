@@ -8,8 +8,11 @@ var webpackHotMiddleware = require('webpack-hot-middleware');
 var config = require('./webpack.config');
 var index = require('./webserver/routes/index');
 var users = require('./webserver/routes/users');
+const connectflash = require('connect-flash');
 var app = express();
 var compiler = webpack(config);
+const passport = require('./webserver/passport/passport');
+const morgan = require('morgan');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
@@ -17,7 +20,7 @@ app.use('/', express.static(path.join(__dirname, './webclient/')));
 
 
 //Mongoose
-var db = 'mongodb://localhost/test';
+var db = 'mongodb://localhost/users';
 mongoose.connect(db);
 
 var db = mongoose.connection;
@@ -26,12 +29,28 @@ db.once('open', function() {
     console.log("connnected with mongo");
 });
 
+app.use(require('express-session')({secret: 'accesskey'}));
+app.use(morgan('dev'));
 
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(connectflash());
 
 //Ruotes
-app.use('/', index);
-app.use('/stream',users);
+app.use('/',users);
 
+
+
+
+
+app.use(function(req, res, next)
+  {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Method', 'GET,POST,PUT,DELETE');
+    res.header('Access-Control-Allow-Headers',
+      'Origin, X-Requested-With, Content-Type, Accept, Authorization');
+    next();
+  });
 
 app.use(webpackDevMiddleware(compiler, {
     noInfo: true,

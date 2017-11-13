@@ -25,7 +25,7 @@ return (
   <div id = 'loginform' >
     <TextField floatingLabelText="Enter your mail id" /><br />
     <div  id = "loginformbuttons">
-    <Link to = {{ pathname: '/', query: { the: 'query' } }} >
+    <Link to = {{ pathname: '/', query: { query: 'forgotPassword' } }} >
     <RaisedButton className = "login_buttons" fullWidth label="Request password" labelPosition="before"  primary={true} icon={<Touch />}  />
     </Link>
     </div>
