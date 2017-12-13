@@ -4,3 +4,8 @@ sudo: required
 language: node_js
 node_js:
   - "stable"
+addons:
+  sonarcloud:
+    organization: "deepali06-github"
+    token:
+      secure: "c0636fe4e5737e0dd1203a31e2025e7cb5b764f1"
