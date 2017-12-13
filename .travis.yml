@@ -9,5 +9,8 @@ addons:
     organization: "deepali06-github"
     token:
       secure: "c0636fe4e5737e0dd1203a31e2025e7cb5b764f1"
+  sauce_connect:
+    username: "deepali06"
+    access_key: "c71c6882-cde2-4c02-9e5c-0bd9fc5439c0"
 script:
   - sonar-scanner
